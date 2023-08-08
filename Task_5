@@ -1,0 +1,9 @@
+import pandas as pd
+df = pd.read_csv("cities_population.csv")
+data = df[["Population","Area KM2","Country"]]
+data["Population"] = data["Population"].str.replace(",","").astype(float)
+data["Area KM2"] = data["Area KM2"].str.replace("-May","").astype(float)
+data_1 = data.groupby("Country")[["Population","Area KM2"]].sum()
+data_1["Mat_Do"] = data_1["Population"] / data_1["Area KM2"]
+data_1  = data_1.sort_values(by="Mat_Do")
+print(data_1)

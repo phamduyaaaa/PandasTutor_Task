@@ -1,0 +1,6 @@
+import pandas as pd
+df = pd.read_csv("cities_population.csv")
+print(df)
+data = df[["City","Country"]]
+city_counts = df["Country"].value_counts()
+print(city_counts.loc[city_counts>=3])

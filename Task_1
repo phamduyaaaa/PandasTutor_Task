@@ -1,0 +1,8 @@
+import pandas as pd
+df = pd.read_csv("cities_population.csv")
+print(df.head())
+data = df[["City","Population"]]
+data["Population"] = data["Population"].str.replace(",","").astype(int)
+data = data.sort_values(by = "Population")
+print(data.head(10))
+print(data.tail(10))
