@@ -8,7 +8,7 @@ print(city_counts.loc[city_counts>=2])
 #Loc cac quoc gia 2 thanh pho tro len
 df_filtered = data.groupby('Country').filter(lambda x: len(x) >= 2)
 #Sap xep giam dan
-df_sorted = df_filtered.sort_values(['Country', 'Population'], )
+df_sorted = df_filtered.sort_values(['Country', 'Population'],ascending = False )
 #Lay ra thanh pho dong dan nhat cua dat nuoc do
 df_final = df_sorted.groupby('Country').head(1)
 print(df_final[['Country', 'City', 'Population']])
